@@ -1,27 +1,21 @@
+var number = 20;    //Number
 
-// var number;
-// var Name;
+var number2 = 20; 
 
-// number=1;
-// Name=" a l i ";
+var Name= "ALI";   //String
 
-// var number,Name,LastName,X,Y;
+var Variable= " Ali " + 20;   //Multiple Variable
 
-var a,b,c;
+var Variable2= 30 - 10 + " Ali ";
 
-a = 12;
-b = 8;
-// c = a + b;
-// c = a - b;
-// c = a * b;
-// c = a / b;
-c = a % b;
+var Variable3= " Ali " + 15 + 5;
 
-// console.log(Name);
+var person={FirstName:"Ali",LastName:"Babaie"};   //Object
 
-document.write(c);
+var isComplete=false;    //Boolean
 
-// window.alert(Name);
+var isEqual;
 
+isEqual=(number==number2);
 
-
+document.write(isEqual);
