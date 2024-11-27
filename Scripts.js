@@ -1,21 +1,28 @@
-var number = 20;    //Number
+var Names = new Array("Ali","Fatemeh","Zeynab","AmirHossain");
 
-var number2 = 20; 
+var MyArray = ["Ali",23,true,"Babaie",21.4321];
 
-var Name= "ALI";   //String
+var Colors = ["red","black","yellow","blue","orange"];
 
-var Variable= " Ali " + 20;   //Multiple Variable
+// Colors.reverse();
 
-var Variable2= 30 - 10 + " Ali ";
+// Colors.shift()
 
-var Variable3= " Ali " + 15 + 5;
+// Colors.shift()
 
-var person={FirstName:"Ali",LastName:"Babaie"};   //Object
+//Colors.unshift("white");
 
-var isComplete=false;    //Boolean
+//Colors.pop();
 
-var isEqual;
+//Colors.push("white");
 
-isEqual=(number==number2);
+//var NewColors=Colors.slice();
 
-document.write(isEqual);
+//var result=Colors.indexOf("blue",0);
+
+var arrayString=Colors.join("-");
+
+console.log(arrayString);
+
+
+
