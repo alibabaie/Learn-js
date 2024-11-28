@@ -1,56 +1,14 @@
-var thisMonth=new Date().getMonth();
-
-//var today=20;
-
-var Month;
-
-switch(thisMonth)
+function findBiggestFraction(a,b)
 {
-    case 0:
-           Month="January";
-           break;
-   case 1:
-            Month="February";
-            break;
-    case 2:
-            Month="March";
-            break; 
-    case 3:
-            Month="April";
-            break; 
-    case 4:
-            Month="May";
-            break;
-    case 5:
-            Month="June";
-            break;
-    case 6:
-            Month="July";
-            break;
 
-    case 7:
-            Month="August";
-            break; 
-    case 8:
-            Month="September";
-            break;
-    case 9:
-            Month="October";
-            break;
-    case 10:
-            Month="November";
-            break;
-    case 11:
-            Month="December";
-            break;
-            default:
-            Month="Your Value Not Found"
-
-
-
+a>b ? console.log("a:"+a) : console.log("b:"+b);
 
 }
 
-console.log("This Month is: "+Month);
+var firstFraction=3/4;
 
-document.write("This Month is: "+Month);
+var secondFraction=5/7;
+
+
+findBiggestFraction(firstFraction,secondFraction);
+findBiggestFraction(7/16,13/25);
