@@ -1,37 +1,56 @@
-//var today=new Date().getDay();
+var thisMonth=new Date().getMonth();
 
-var today=20;
+//var today=20;
 
-var day;
+var Month;
 
-switch(today)
+switch(thisMonth)
 {
     case 0:
-           day="sunday";
+           Month="January";
            break;
    case 1:
-            day="monday";
+            Month="February";
             break;
     case 2:
-            day="tuesday";
+            Month="March";
             break; 
     case 3:
-            day="wendsday";
+            Month="April";
             break; 
     case 4:
-            day="thursday";
+            Month="May";
             break;
     case 5:
-            day="friday";
+            Month="June";
             break;
     case 6:
-           day="saturday";
+            Month="July";
+            break;
+
+    case 7:
+            Month="August";
+            break; 
+    case 8:
+            Month="September";
+            break;
+    case 9:
+            Month="October";
+            break;
+    case 10:
+            Month="November";
+            break;
+    case 11:
+            Month="December";
             break;
             default:
-            day="Your Value Not Found"    
+            Month="Your Value Not Found"
+
+
+
 
 }
 
-console.log("Today is: "+day);
+console.log("This Month is: "+Month);
 
-document.write("Today is: "+day);
+document.write("This Month is: "+Month);
