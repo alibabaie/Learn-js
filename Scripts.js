@@ -1,23 +1,37 @@
-var a,b;
+//var today=new Date().getDay();
 
-var isEqual;
+var today=20;
 
-a=50;
-b=5;
+var day;
 
-// if (a==b) 
-// {
+switch(today)
+{
+    case 0:
+           day="sunday";
+           break;
+   case 1:
+            day="monday";
+            break;
+    case 2:
+            day="tuesday";
+            break; 
+    case 3:
+            day="wendsday";
+            break; 
+    case 4:
+            day="thursday";
+            break;
+    case 5:
+            day="friday";
+            break;
+    case 6:
+           day="saturday";
+            break;
+            default:
+            day="Your Value Not Found"    
 
-// isEqual=true; 
+}
 
-// }
-// else
-// {
+console.log("Today is: "+day);
 
-// isEqual=false; 
-
-// }
-
-a==b ? isEqual=true : isEqual=false;
-
-console.log("the Equal match is:"+isEqual);
+document.write("Today is: "+day);
