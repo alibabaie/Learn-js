@@ -1,28 +1,23 @@
-var Names = new Array("Ali","Fatemeh","Zeynab","AmirHossain");
+var a,b;
 
-var MyArray = ["Ali",23,true,"Babaie",21.4321];
+var isEqual;
 
-var Colors = ["red","black","yellow","blue","orange"];
+a=50;
+b=5;
 
-// Colors.reverse();
+// if (a==b) 
+// {
 
-// Colors.shift()
+// isEqual=true; 
 
-// Colors.shift()
+// }
+// else
+// {
 
-//Colors.unshift("white");
+// isEqual=false; 
 
-//Colors.pop();
+// }
 
-//Colors.push("white");
+a==b ? isEqual=true : isEqual=false;
 
-//var NewColors=Colors.slice();
-
-//var result=Colors.indexOf("blue",0);
-
-var arrayString=Colors.join("-");
-
-console.log(arrayString);
-
-
-
+console.log("the Equal match is:"+isEqual);
