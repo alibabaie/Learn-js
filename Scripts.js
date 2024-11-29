@@ -1,47 +1,52 @@
-//Named Functions....
+var variable1="variable1";   //Globally Variable
 
-function findBiggestFraction(a,b)
-{
+function myfunction() {
 
-var result;
-a>b ? result=["firstFraction",a] : result=["secondFraction",b];
-return result;
-
+    var variable2="variable2";   //Locally Variable
+    console.log(variable2);
+    
 }
+//console.log(variable1);
+myfunction();
 
-//var newResult = findBiggestFraction(7/16,13/25);
+//---------------------------------------
 
-//console.log(findBiggestFraction(7/16,13/25));
+var Result="Ali";
 
-var fractionResult = findBiggestFraction(7/16,13/25);
+Result="AmirHossain"
 
-//console.log("Fraction "+fractionResult[0]+" with a value "+fractionResult[1]+" is the Biggest");
+const Result2="Ali";
+
+//Result2="AmirHossain";
+
+//console.log(Result2);
+
+// function logScope(){
+//     var localVar=2;
+    
+
+//     if(localVar=2)
+//     {
+//         var localVar="different Variable ";
+//         console.log("nested localVar "+localVar);
+        
+//     }
+//     console.log("LogScope localVar  :"+localVar);
+// }
+// logScope();
 
 
+function logScope(){
+    let localVar=2;
+    
 
-//Anonymous Functions....
-
-var theBiggest= function (a,b){
-    var result;
-    a>b ? result=["a",a] : result=["b",b];
-    return result;
+    if(localVar=2)
+    {
+        let localVar="different Variable ";
+        console.log("nested localVar "+localVar);
+        
+    }
+    console.log("LogScope localVar  :"+localVar);
 }
-//console.log(theBiggest(7/9,13/24));
-//console.log(theBiggest);
-//console.log(theBiggest());
-
-
-
-//Immediately Invoked Functions....
-
-var theBiggest= (function (a,b){
-
-    var result;
-    a>b ? result=["a",a] : result=["b",b];
-    return result;
-
-})(7/9,13/24);
-
-console.log(theBiggest);
-
+logScope();
 
