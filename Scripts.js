@@ -1,52 +1,26 @@
-var variable1="variable1";   //Globally Variable
-
-function myfunction() {
-
-    var variable2="variable2";   //Locally Variable
-    console.log(variable2);
-    
-}
-//console.log(variable1);
-myfunction();
-
-//---------------------------------------
-
-var Result="Ali";
-
-Result="AmirHossain"
-
-const Result2="Ali";
-
-//Result2="AmirHossain";
-
-//console.log(Result2);
-
-// function logScope(){
-//     var localVar=2;
-    
-
-//     if(localVar=2)
-//     {
-//         var localVar="different Variable ";
-//         console.log("nested localVar "+localVar);
-        
-//     }
-//     console.log("LogScope localVar  :"+localVar);
+// var person={
+//     firstName:"Ali",
+//     lastName:"Babaie"
 // }
-// logScope();
+// var person2=new Object();
 
+// person2.phoneNumber=9119037444;
+// person2.Age=28;
+// console.log(person2);
 
-function logScope(){
-    let localVar=2;
-    
-
-    if(localVar=2)
-    {
-        let localVar="different Variable ";
-        console.log("nested localVar "+localVar);
-        
+var course={
+    title:"JavaScript",
+    teacher:"Mohammad Hashemi",
+    level:1,
+    isActive:true,
+    views:0,
+    updateView:function(){
+        return ++course.views;
     }
-    console.log("LogScope localVar  :"+localVar);
 }
-logScope();
+//console.log(cours);
+console.log(course.views);
+course.updateView();
+console.log(course.views);
+
 
