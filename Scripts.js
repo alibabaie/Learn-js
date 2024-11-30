@@ -1,22 +1,34 @@
-const Cars=["Benz","BMW","Peykan","Pride","MVM"];
+const cars=["Benz","BMW","Pride","Peykan","Ford"]
 
-const car={name:"BMW X6" , productyear:2022 , color:"white" , isABS:true};
+//var i=0;
 
- for (key in car){
+// while(i <= 10)
+//     {
+//      console.log(i);
+//      i++;
 
-     console.log("For in : "+key);
-     //console.log(car[key]);
-    
- }
-
-// for (key in Cars){
-
-//     console.log(key);
-    
 // }
 
-for (value of Cars){
+// while (cars[i])
+//     {
+//      console.log(cars[i]);
+//      i++;
 
-    console.log("For of : "+value);
+//     }
+
+// do
+// {
+//     console.log(i);
+//     i++;
+    
+// }while(i>10)
+
+for (let i = 0 ; i<10 ; i++){
+    
+    if(i==5)
+    // {break};
+    {continue};
+
+    console.log(i);
     
 }
