@@ -1,34 +1,7 @@
-const cars=["Benz","BMW","Pride","Peykan","Ford"]
+//document.getElementById("test").innerHTML="Hellow DOM";
 
-//var i=0;
+const element= document.getElementById("test");
 
-// while(i <= 10)
-//     {
-//      console.log(i);
-//      i++;
+//element.innerHTML="Hellow DOM";
 
-// }
-
-// while (cars[i])
-//     {
-//      console.log(cars[i]);
-//      i++;
-
-//     }
-
-// do
-// {
-//     console.log(i);
-//     i++;
-    
-// }while(i>10)
-
-for (let i = 0 ; i<10 ; i++){
-    
-    if(i==5)
-    // {break};
-    {continue};
-
-    console.log(i);
-    
-}
+element.innerHTML="Date : "+Date();
