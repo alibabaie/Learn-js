@@ -1,4 +1,12 @@
+//document.querySelector(".main-title").innerHTML="I Take Your H2 Tag";
 
-const element= document.getElementById("test");
+//const element= document.querySelector(".main-title").innerHTML;
 
-element.innerHTML="Date :"+Date();
+//const element= document.querySelector(".main-title").outerHTML;
+
+//const element= document.querySelector(".promo-area").id;
+
+//const element= document.querySelector("#showcase").className;
+
+const element= document.querySelector("#showcase").className="test";
+console.log(element);
