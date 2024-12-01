@@ -1,12 +1,19 @@
-//document.querySelector(".main-title").innerHTML="I Take Your H2 Tag";
+//const element= document.querySelector("#showcase").hasAttribute("href");
 
-//const element= document.querySelector(".main-title").innerHTML;
+//const element= document.querySelector("#showcase").setAttribute("class","test");
 
-//const element= document.querySelector(".main-title").outerHTML;
+//const element= document.querySelector("#showcase").removeAttribute("class");
 
-//const element= document.querySelector(".promo-area").id;
+const ctaElement= document.querySelector(".cta a");
 
-//const element= document.querySelector("#showcase").className;
+if(ctaElement.hasAttribute("target"))
+{
+    console.log(ctaElement.getAttribute("target"));
+    
+}else{
 
-const element= document.querySelector("#showcase").className="test";
-console.log(element);
+    ctaElement.setAttribute("target","blank");
+
+}
+
+console.log(ctaElement.attributes);
