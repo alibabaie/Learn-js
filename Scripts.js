@@ -1,19 +1,20 @@
-//const element= document.querySelector("#showcase").hasAttribute("href");
 
-//const element= document.querySelector("#showcase").setAttribute("class","test");
+const Names=["Ali","FatemehZahra","Zeynab","AmirHossain"];
 
-//const element= document.querySelector("#showcase").removeAttribute("class");
+function createLiElement(){
 
-const ctaElement= document.querySelector(".cta a");
+    for (const item of Names) {
+        
+        var node=document.createElement("li");
 
-if(ctaElement.hasAttribute("target"))
-{
-    console.log(ctaElement.getAttribute("target"));
+        var textnode=document.createTextNode(item);
     
-}else{
+        node.appendChild(textnode);
+    
+        document.getElementById("myList").appendChild(node);
 
-    ctaElement.setAttribute("target","blank");
-
+    }
+ 
 }
 
-console.log(ctaElement.attributes);
+createLiElement();
