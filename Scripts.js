@@ -1,17 +1,14 @@
-const CTA = document.querySelector(".cta a");
-const ALERT = document.querySelector("#booking-alert");
 
+const DIV = document.getElementById("demo");
 
-CTA.classList.remove("hide");
-ALERT.classList.add("hide");
-
-function reveal(e)
-{
-    e.preventDefault();
-    CTA.classList.toggle("hide");
-    ALERT.classList.toggle("hide");
+DIV.onmouseover = function (){
+   
+    document.getElementById("demo").style.backgroundColor="red";
 
 }
 
+DIV.onmouseout = function (){
 
-CTA.onclick=reveal;
+    document.getElementById("demo").style.backgroundColor="orange";
+
+}
