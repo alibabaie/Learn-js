@@ -1,10 +1,22 @@
 const theTimer=document.querySelector(".timer");
+const testArea=document.querySelector("#test-area");
 
 var timer=[0,0,0,0];
 
+var timerRuning=false;
+
+function leadinZero(time){
+
+    if(time<=9){
+        time="0"+time;
+    }
+    return time;
+
+}
+
 function runTimer(){
 
- let currentTime=timer[0]+":"+timer[1]+":"+timer[2];
+ let currentTime=leadinZero(timer[0])+":"+leadinZero(timer[1])+":"+leadinZero(timer[2]);
  
  theTimer.innerHTML=currentTime;
 
@@ -18,5 +30,15 @@ function runTimer(){
     
 }
 
-setInterval(runTimer,10);
+function Start(){
 
+    let textEnteredLength=testArea.value.length;
+
+    if(textEnteredLength==0 && !timerRuning)
+    {
+        timerRuning=true;
+        setInterval(runTimer,10);
+    }
+}
+
+testArea.addEventListener("keypress",Start);
