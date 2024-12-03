@@ -1,47 +1,31 @@
 
-const ELEMENT=document.getElementById("myBtn");
+const DIV1 = document.getElementById("myDiv");
 
-//  test by anonymous function
-// ELEMENT=addEventListener('click',function(){
+const pElement = document.getElementById("myP1");
 
-//     document.getElementById("test").innerHTML=Date();
+const ButtonElement = document.getElementById("myBtn");
 
-// });
+// DIV1.addEventListener('click',function(){
 
-//  test by name function
-// function displayDate(){
+//     alert("You Click on DIV")
+// },true);
 
-// document.getElementById("test").innerHTML=Date();
+// pElement.addEventListener('click',function(){
 
-// }
+//     alert("You Click on P")
+// },true);
 
-// ELEMENT.addEventListener('click',myFunction);
+ButtonElement.addEventListener('click',RemoveEventFormDIV);
 
-// // ELEMENT.addEventListener('click',otherFunction);
+function RemoveEventFormDIV(){
 
-// function myFunction(){
+    DIV1.removeEventListener('mousemove',RandomNumber);
+}
 
-// alert("First Function Happend");
 
-// }
+DIV1.addEventListener('mousemove',RandomNumber);
 
-// function otherFunction(){
+function RandomNumber(){
 
-//     alert("Other Function Happend");
-    
-//     }
-
-let p1=7;
-let p2=4;
-
-ELEMENT.addEventListener('click',function(){
-
-myFunction(p1,p2);
-
-});
-
-function myFunction(a,b){
-
-document.getElementById("test").innerHTML=a*b;
-
+    document.getElementById("test").innerHTML=Math.random();
 }
