@@ -1,40 +1,23 @@
-//Range Error.....
+const myBtn = document.getElementById("myBtn");
 
-// const array=[90,44];
-// Array.length=90**88;
+const txtDiv = document.getElementById("text");
 
+function loadText(){
 
-//Reference Error.....
+var xhr = new XMLHttpRequest();
 
-// const red="red";
-// red;
-// blue;
+//console.log(xhr);
 
+xhr.open("GET","test.txt",true);
 
+xhr.onload=function(){
 
-//Syntax Error.....
-
-//let cat        h="cat";
-
-
-//Type Error.....
-
-//const number=123;
-//number.toUpperCase();
-
-// var hello="hello";
-// hello=hello.toUpperCase();
-// console.log(hello);
-
-
-//Internal Error.....
-
-function foo(){
-
-    foo()
+    if(xhr.status==200){
+        txtDiv.innerHTML=this.response;
+    }
 }
 
-foo();
+xhr.send();
+}
 
-
-
+myBtn.addEventListener('click',loadText);
