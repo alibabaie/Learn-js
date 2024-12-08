@@ -1,33 +1,29 @@
-const btnLoad = document.getElementById("btnLoad");
+const firstName = document.getElementById("FirstName");
 
-function LoadDoc() {
-  var xhr = new XMLHttpRequest();
+const lastName = document.getElementById("LastName");
 
-  xhr.open("GET", "cd-collection.xml", true);
+const jobTitle = document.getElementById("jobTitle");
 
-  xhr.onload = function () {
-    //console.log(this,this.responseText);
-    
-    loadXML(this);
-  };
+const frmSend = document.getElementById("frmSend");
 
-  xhr.send();
+function SendData() {
+  var xhr =new XMLHttpRequest();
+
+  var params =
+    "firstName=" +
+    firstName.value +
+    "&" +
+    "lastName=" +
+    lastName.value +
+    "&" +
+    "jobTitle=" +
+    jobTitle.value;
+
+  xhr.open("POST", "http://localhost:7006/api/persons/adduser", true);
+
+  xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded'); 
+
+  xhr.send(params);
 }
 
-function loadXML(xml) {
-  const xmlDoc = xml.responseXML;
-  const cd = xmlDoc.getElementsByTagName("CD");
-  //console.log(cd);
-  
-  let table = "<tr><th>Artist</th><th>Title</th></tr>";
-  for (let i = 0; i < cd.length; i++) {
-    table+="<tr><td>"+
-    cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue+
-    "</td><td>"+
-    cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue+
-    "</td></tr>";
-  }
-  document.getElementById("tableXml").innerHTML=table;
-}
-
-btnLoad.addEventListener("click", LoadDoc);
+frmSend.addEventListener('submit',SendData);
