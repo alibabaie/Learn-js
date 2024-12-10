@@ -1,19 +1,52 @@
-function addPost(e) {
-  e.preventDefault();
+//Asinkronuse..................................
 
-  let TitleValue = document.getElementById("title").value;
-  let BodyValue = document.getElementById("body").value;
+// setTimeout(() => {
+//   console.log("coffee");
+// },3000);
+// console.log("toast");
+// console.log("tea");
 
-  fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "POST",
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ title: TitleValue, body: BodyValue }),
-  })
-    .then((res) => res.json())
-    .then((json) => console.log(json));
+
+//callback function................................
+
+// let greeting = name => console.log(`Hello ${name}`);
+
+// //greeting("Ali");
+
+// const userInfo=(firstName,lastName,callback) => {
+//   const FullName=`${firstName} ${lastName}`;
+//   callback(FullName);
+
+// }
+// userInfo("Ali",'Babaie',greeting);
+
+
+//Promise..............................
+
+const hasMeeting = false;
+
+const meeting = new Promise ((resolve,reject) => {
+
+if(!hasMeeting){
+  const meetingdetails = {
+    name:"Family Meeting",
+    location:"Babol",
+    time:"10:00 AM"
+
+  };
+  resolve(meetingdetails);
+}else{
+reject(new Error ("Meeting Canceled"));
+
 }
 
-document.getElementById("addPost").addEventListener("submit", addPost);
+});
+
+meeting
+.then((res) => console.log(res))
+.catch((rej) => console.log(rej))
+
+
+
+
+
