@@ -1,16 +1,33 @@
-const h1 = document.getElementById("title");
 
-//const firstName = "";
+const input = document.getElementById('name');
+const form = document.querySelector('form');
+const submit = document.getElementById('submitName');
+const remove = document.getElementById('removeName');
 
-localStorage.setItem("firstName",'Ali');
+form.addEventListener("submit",(e) => {
 
-localStorage.setItem("lastName",'Babaie');
+e.preventDefault();
 
-localStorage.removeItem('lastName');
+});
 
-const firstName = localStorage.getItem('firstName');
+submit.addEventListener('click',() =>{
 
-firstName ? h1.innerText=`Welcome ${firstName}` : h1.innerText='Nobody To Welcome';
+sessionStorage.setItem('name',input.value);
+
+});
+
+remove.addEventListener('click',() =>{
+
+    sessionStorage.removeItem('name');
+
+});
+
+const h1 = document.querySelector('#title');
+
+const firstName = sessionStorage.getItem('name');
+
+firstName
+ ? (h1.innerText=`Welcome ${firstName}`) : (h1.innerText='Nobody To Welcome');
 
 
 
