@@ -338,7 +338,7 @@ footer {
   transition: 0.4s;
 }
 
-.todos.completed > .card.checked ~ .card.checked {
+.todos.completed > .card.checked {
   border-top: 0.2rem solid var(--clr-gb-6);
 }
 
@@ -375,4 +375,25 @@ footer {
 
 .todos .card.dragging {
   opacity: 0.5;
+}
+
+
+.todos .card.fall {
+  pointer-events: none;
+  animation: fall 0.2s forwards;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0.5;
+    transform: translateX(20%);
+  }
+  50% {
+    transform: translateX(25%) rotateZ(40deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(30%) rotateZ(90deg);
+    opacity: 0;
+  }
 }

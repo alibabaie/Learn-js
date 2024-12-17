@@ -23,7 +23,7 @@ function main() {
   ul.addEventListener('dragover', (e) => {
     e.preventDefault();
     if (e.target.classList.contains("card") &&
-     !e.target.classList.contains("dragging")) {
+      !e.target.classList.contains("dragging")) {
       const draggingCard = document.querySelector(".dragging");
       const cards = [...ul.querySelectorAll(".card")];
       const currentPos = cards.indexOf(draggingCard);
@@ -61,14 +61,40 @@ function main() {
 
       todos.push(currentTodo);
       localStorage.setItem("todos", JSON.stringify(todos));
+      makeTodoElement([currentTodo]);
     }
   });
+
+
+  todoInput.addEventListener('keydown', (e) => {
+
+    if (e.key == 'Enter') {
+      addBtn.click();
+    }
+
+  })
 }
+
+function removeTodo(index) {
+  const todos = JSON.parse(localStorage.getItem("todos"));
+  todos.splice(index, 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+
+function stateTodo(index, isComplete) {
+  const todos = JSON.parse(localStorage.getItem("todos"));
+  todos[index].isCompleted = isComplete;
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+
 
 function makeTodoElement(todoArray) {
   if (!todoArray) {
     return null;
   }
+  const ItemsLeft = document.querySelector('#items-left');
 
   todoArray.forEach((todoObject) => {
     //Create Html Elements Of Todo
@@ -93,6 +119,12 @@ function makeTodoElement(todoArray) {
     img.setAttribute("src", "./assets/images/icon-cross.svg");
     img.setAttribute("alt", "Clear It");
     item.textContent = todoObject.item;
+
+    if (todoObject.isCompleted) {
+      card.classList.add('checked');
+      cbInput.setAttribute('checked', 'checked');
+    }
+
     //Add EventListener
     card.addEventListener('dragstart', () => {
       card.classList.add("dragging");
@@ -101,6 +133,43 @@ function makeTodoElement(todoArray) {
     card.addEventListener('dragend', () => {
       card.classList.remove("dragging");
     });
+    cbInput.addEventListener('click', (e) => {
+
+      const currentCard = cbInput.parentElement.parentElement;
+      const checked = cbInput.checked;
+      const currentCardIndex = [...document.querySelectorAll(".todos .card")]
+        .indexOf(currentCard);
+      stateTodo(currentCardIndex, checked);
+
+      checked ? currentCard.classList.add('checked') : currentCard.classList.remove('checked')
+
+      ItemsLeft.textContent = document.querySelectorAll(
+        ".todos .card:not(.checked)"
+      ).length;
+
+
+    })
+
+    clearBtn.addEventListener('click', (e) => {
+
+      const currentCard = clearBtn.parentElement;
+      currentCard.classList.add('fall');
+      const indexOfCurrentCard = [...document.querySelectorAll(".todos .card")].indexOf(currentCard);
+      removeTodo(indexOfCurrentCard);
+      currentCard.addEventListener('animationend', () => {
+
+
+        setTimeout(() => {
+          currentCard.remove();
+          ItemsLeft.textContent = document.querySelectorAll(
+            ".todos .card:not(.checked)"
+          ).length;
+        }, 100);
+
+      });
+
+    });
+
 
     //Set Element by Parent Child
     clearBtn.appendChild(img);
@@ -112,6 +181,9 @@ function makeTodoElement(todoArray) {
 
     document.querySelector(".todos").appendChild(card);
   });
+  ItemsLeft.textContent = document.querySelectorAll(
+    ".todos .card:not(.checked)"
+  ).length;
 }
 
 document.addEventListener("DOMContentLoaded", main);
