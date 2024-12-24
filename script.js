@@ -1,7 +1,8 @@
 let db;
 const firstNameInput = document.querySelector("#firstName");
 const lastNameInput = document.querySelector("#lastName");
-const from = document.querySelector("form");
+const form = document.querySelector("form");
+const list = document.querySelector("ul");
 
 window.onload = () => {
     let request = window.indexedDB.open("contacts", 1);
@@ -14,7 +15,7 @@ window.onload = () => {
     request.onsuccess = () => {
         console.log("Database Opened Successfully");
         db = request.result;
-        console.log(db);
+        displayData();
     }
 
 
@@ -45,9 +46,6 @@ window.onload = () => {
 }
 
 
-
-
-
 const addData = (e) => {
     e.preventDefault();
 
@@ -66,6 +64,7 @@ const addData = (e) => {
 
     transaction.oncomplete = () => {
         console.log("transaction Completed On Database");
+        displayData();
     }
 
 
@@ -74,10 +73,47 @@ const addData = (e) => {
     }
 
 
+}
+
+
+const displayData = () => {
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+
+    let objectStore = db.transaction('contacts').objectStore('contacts');
+
+    objectStore.openCursor().onsuccess = (e) => {
+        let cursor = e.target.result;
+
+        if (cursor) {
+            let listItem = document.createElement('li');
+            let first = document.createElement('p');
+            let last = document.createElement('p');
+
+            first.textContent = cursor.value.firstName;
+            last.textContent = cursor.value.lastName;
+
+            listItem.appendChild(first);
+            listItem.appendChild(last);
+            list.appendChild(listItem);
+
+            listItem.setAttribute('data-contact-id', cursor.value.id);
+
+            cursor.continue();
+        } else {
+            if (!list.firstChild) {
+                let listItem = document.createElement("li");
+                listItem.textContent = "There is No Contact...!!!";
+                list.appendChild(listItem);
+            }
+        }
+
+
+    }
+
 
 }
 
 
-from.addEventListener('submit', addData);
-
-
+form.addEventListener('submit', addData);
