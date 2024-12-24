@@ -7,6 +7,9 @@ html {
     max-width: 800px;
   }
   
+  .contacts{
+    background-color: lightblue;
+  }
   
   .new-contact, .contacts {
     padding: 20px;
@@ -23,6 +26,17 @@ html {
   ul {
     list-style-type: none;
   }
+
+  li{
+    border-bottom: 1px solid white;
+  }
+  li:last-child{
+    border:none;
+  }
+  button{
+    margin:10 0 10 0 ;
+  }
+  
   
   div {
     margin-bottom: 10px;

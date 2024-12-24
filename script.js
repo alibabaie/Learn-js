@@ -54,7 +54,10 @@ const addData = (e) => {
         lastName: lastNameInput.value
     };
 
-    let transaction = db.transaction(['contacts'], 'readwrite').objectStore('contacts').add(newItem);
+    let transaction = db.transaction(['contacts'], 'readwrite')
+
+
+    let request = transaction.objectStore('contacts').add(newItem);
 
 
     transaction.onsuccess = () => {
@@ -100,6 +103,12 @@ const displayData = () => {
 
             listItem.setAttribute('data-contact-id', cursor.value.id);
 
+            let deleteButton = document.createElement('button');
+            listItem.appendChild(deleteButton);
+            deleteButton.textContent = "Delete";
+
+            deleteButton.addEventListener('click', deleteItem);
+
             cursor.continue();
         } else {
             if (!list.firstChild) {
@@ -109,6 +118,31 @@ const displayData = () => {
             }
         }
 
+
+    }
+
+
+}
+
+const deleteItem = (e) => {
+
+    let contactId = Number(e.target.parentElement.getAttribute('data-contact-id'));
+
+    let transaction = db.transaction(['contacts'], 'readwrite');
+    let request = transaction.objectStore('contacts').delete(contactId);
+
+    console.log('Delete Button Clicked');
+
+    transaction.oncomplete = () => {
+        e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+
+        console.log(`Contact ${contactId} is deleted`);
+
+        if (!list.firstChild) {
+            let listItem = document.createElement("li");
+            listItem.textContent = "There is No Contact...!!!";
+            list.appendChild(listItem);
+        }
 
     }
 
