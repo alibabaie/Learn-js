@@ -1,24 +1,23 @@
-//////Alert
 
-//alert("you are very handsome");
+// Property In Location............
 
+//var portName = location.host;
+//var portName = location.href;
+//var portName = location.protocol;
+// var portName = location.pathname;
 
-
-
-//////Confirm
-
- let result = confirm("Are You A javascript Programmer?");
- let message = result ? "You Clicked the Ok Button" :
-     "You Clicked the cancel Button";
- console.log(message);
+// alert(portName);
 
 
+// Function In Location
 
-//////Prompt
+//location.replace('https://ikco.ir');
 
-// let result = window.prompt("What is Your favorite programming Language?");
-// let feedback = result.toLowerCase() === 'javascript' ? `its a great Language` :
-//    `its ${result}`;
-// alert(feedback);
+var btn = document.querySelector("button");
+
+btn.addEventListener('click', function (){
+
+    location.reload();
+});
 
 
