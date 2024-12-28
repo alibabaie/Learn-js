@@ -1,61 +1,24 @@
-// const circle = {
 
-//     radius : 1,
-//     location : {
-//         x:1,
-//         y:1
-//     },
-//     draw : function () {
-
-//         console.log("draw");
-        
-//     }
-
-// }
-
-// circle.draw();
-
-//Object Factory..............................
-
-
-//  function createCircle(radius){
-
-//     return {
-//          radius:radius,
-//          draw:function(){
-//              console.log('draw');
-//         }
-//      }
-
-//  }
-
-
-//  const circle=createCircle(1);
-
-//  const circle2=createCircle(2);
-
-//  circle.draw();
-//  circle2.draw();
-
-
-
- // Constructor Function........................
-
-function Circle (radius) {
-console.log("this : ",this);
-
-this.radius = radius;
-this.draw = function () {
-
-    console.log("draw");
+function Car (speed) {
+    this.speed = speed;
+    this.move = function () {
+    console.log("Moving");
     
+    };
 }
 
-}
- const newObject1 = new Circle(1);
- const newObject2 = new Circle(2);
+const car = new Car (120);
 
- newObject1.draw();
+car.move();
 
+const Car1 = new Function ('speed',`
+        this.speed = speed;
+    this.move = function () {
+    console.log("Moving");
+    
+    };`);
 
+    const carObject = new Car1 (80);
+
+    carObject.move();
 
