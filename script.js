@@ -9,14 +9,18 @@ function Car(name, speed) {
 
 const pride = new Car("killer machine", 180);
 
- pride.model={ year:1394};
+for (let key in pride){
 
- const propertyName='model-year';
+  if (typeof pride[key] !== 'function')
 
- pride[propertyName]={ year:1394};
+ console.log(key,typeof pride[key]);
+  
+}
 
+const keys = Object.keys(pride);
+console.log(keys);
 
- delete pride.model; 
-
- delete pride[propertyName];
-
+if ("name" in pride){
+  console.log('name is in pride');
+  
+}
