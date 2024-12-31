@@ -1,31 +1,16 @@
+doSomthing();
 
-// function Circle(radius) {
-
-//   this.radius = radius;
-  
-//   this.draw = function () {
-//   console.log('draw');
-  
-//   };
-  
-// }
+doSomthing2();
 
 
-// Class in ES6 .................................
 
-class Circle {
 
-  constructor (radius) {
 
-    this.radius = radius;
-  }
+// Function Declaration..........................
 
-  draw () {
-    console.log("draw");
-    
-  }
-}
+function doSomthing () {}
 
-const c = new Circle (2);
 
-c.draw();
+// Function Expression...........................
+
+const doSomthing2 = function () {}
