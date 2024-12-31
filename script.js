@@ -1,37 +1,31 @@
-function Car(name, speed) {
-  this.name = name;
 
-  let bodyWeight = 550;
+// function Circle(radius) {
 
-  let calculateSpeed = function () {
-    bodyWeight / 12;
-  };
+//   this.radius = radius;
+  
+//   this.draw = function () {
+//   console.log('draw');
+  
+//   };
+  
+// }
 
-  this.maxSpeed = function () {
-    calculateSpeed();
-    console.log(speed);
-  };
 
-  Object.defineProperty(this,'bodyWeight',{
-    get: function() {
-      return bodyWeight;
-    },
-    set: function(value) {
-      if(value <= 0){
-        throw new Error("Invalid Number");
-      }
+// Class in ES6 .................................
 
-      bodyWeight=value+10;
-    }
+class Circle {
 
-  })
+  constructor (radius) {
 
+    this.radius = radius;
+  }
+
+  draw () {
+    console.log("draw");
+    
+  }
 }
 
-const pride = new Car("killer machine", 180);
-pride.bodyWeight=220;
-console.log(pride.bodyWeight);
+const c = new Circle (2);
 
-
-
-
+c.draw();
