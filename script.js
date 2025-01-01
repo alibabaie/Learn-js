@@ -1,32 +1,35 @@
+// "use strict"
 
-class User {
 
-    constructor (username,email) {
+// const Car = function () {
 
-        this.username = username;
-        this.email = email;
-    }
+//     this.drive = function () {console.log(this);}
+    
+// }
 
-    // Instance Methods......................
-    getInfo () {
+//const Pride = new Car ();
+//const Peykan = new Car ();
 
-        return `نام کاربری : ${this.username} , ایمیل : ${this.email}`;
-    }
+// Method Call....................
 
-    // Stattic Methods.......................
+//Pride.drive();
+//Peykan.drive();
 
-    static validateEmail (email) {
+// Function Call...................
 
-        if (!email || !email.trim() == '') return false;
-        if (!email.includes('@')) return false;
+//const drive = Pride.drive;
+//drive();
 
-        return true;
+
+// New Syntax......................
+
+class Car {
+    drive () {console.log(this);
     }
 }
 
-const user1 = new User ("ali babaie",'ali@gmail.com');
-const user2 = new User ("amir hossain babaie",'amir hossain@gmail.com');
+const Pride = new Car ();
+Pride.drive();
 
-user1.getInfo();
-user2.getInfo();
-//user1.validateEmail();
+const driveFunction = Pride.drive;
+driveFunction();
