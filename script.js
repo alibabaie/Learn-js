@@ -1,35 +1,51 @@
-// "use strict"
+class Wallet {
 
+    #money;
 
-// const Car = function () {
+    constructor (){
+        this.#money = 0;
+    }
 
-//     this.drive = function () {console.log(this);}
-    
-// }
+    getBalance (){
+        return this.#money;
+    }
 
-//const Pride = new Car ();
-//const Peykan = new Car ();
+    add (amount){
+      if(amount <=0){
+        throw new Error ("مقدار باید مثبت باشد");
+      }
+      this.#money += amount  
+    }
+ 
+    spend (amount){
+      if(amount > this.#money){
+        throw new Error ('موجودی کافی نیست');
+      }
+      this.#money -= amount;
+    }
 
-// Method Call....................
-
-//Pride.drive();
-//Peykan.drive();
-
-// Function Call...................
-
-//const drive = Pride.drive;
-//drive();
-
-
-// New Syntax......................
-
-class Car {
-    drive () {console.log(this);
+    #transactionHistory (){
+     console.log("Transaction");
+     
     }
 }
 
-const Pride = new Car ();
-Pride.drive();
+const aliWallet = new Wallet ();
+console.log(aliWallet.getBalance());
 
-const driveFunction = Pride.drive;
-driveFunction();
+aliWallet.add(100);
+console.log(aliWallet.getBalance());
+
+aliWallet.spend(10);
+console.log(aliWallet.getBalance());
+
+console.log(aliWallet.money);
+//aliWallet.money+100;
+
+console.log(aliWallet.transactionHistory());
+
+
+
+
+
+
