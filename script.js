@@ -1,33 +1,58 @@
 
-class BankAccount{
+class Shape {
 
-  #balance = 0;
-
-  get balanced (){
-
-    //return this.#balance
-
-    return `$ ${this.#balance.toLocaleString()}`;
-  }
-
-  set balanced (amount){
-
-    // if(typeof amount !== "number") {
-    //   throw new Error ("نوع مقدار باید عددی باشد");
-    // }
-
-    // if(amount<0){
-    //   throw new Error ("مقدار باید بزرگتر از صفر باشد");
-    // }
-     this.#balance = amount;
+  move(){
+    console.log('move');
+    
   }
 }
 
-const account1 = new BankAccount();
+class Circle extends Shape{
 
-console.log(account1.balanced);
+  // move(){
+  //   console.log('move');
+    
+  // }
 
-account1.balanced = 120;
+  draw (){
+    console.log('draw');
+    
+  }
+}
 
-console.log(account1.balanced);
+class Square extends Shape{
 
+  // move(){
+  //   console.log('move');
+    
+  // }
+
+  draw (){
+    console.log('draw');
+    
+  }
+}
+
+class Triangle extends Shape{
+
+  // move(){
+  //   console.log('move');
+    
+  // }
+
+  draw (){
+    console.log('draw');
+    
+  }
+}
+
+const circle = new Circle();
+const square = new Square();
+const triangle = new Triangle();
+
+circle.move();
+circle.draw();
+square.move();
+square.draw();
+triangle.move();
+triangle.draw();
