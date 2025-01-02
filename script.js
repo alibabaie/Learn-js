@@ -1,51 +1,33 @@
-class Wallet {
 
-    #money;
+class BankAccount{
 
-    constructor (){
-        this.#money = 0;
-    }
+  #balance = 0;
 
-    getBalance (){
-        return this.#money;
-    }
+  get balanced (){
 
-    add (amount){
-      if(amount <=0){
-        throw new Error ("مقدار باید مثبت باشد");
-      }
-      this.#money += amount  
-    }
- 
-    spend (amount){
-      if(amount > this.#money){
-        throw new Error ('موجودی کافی نیست');
-      }
-      this.#money -= amount;
-    }
+    //return this.#balance
 
-    #transactionHistory (){
-     console.log("Transaction");
-     
-    }
+    return `$ ${this.#balance.toLocaleString()}`;
+  }
+
+  set balanced (amount){
+
+    // if(typeof amount !== "number") {
+    //   throw new Error ("نوع مقدار باید عددی باشد");
+    // }
+
+    // if(amount<0){
+    //   throw new Error ("مقدار باید بزرگتر از صفر باشد");
+    // }
+     this.#balance = amount;
+  }
 }
 
-const aliWallet = new Wallet ();
-console.log(aliWallet.getBalance());
+const account1 = new BankAccount();
 
-aliWallet.add(100);
-console.log(aliWallet.getBalance());
+console.log(account1.balanced);
 
-aliWallet.spend(10);
-console.log(aliWallet.getBalance());
+account1.balanced = 120;
 
-console.log(aliWallet.money);
-//aliWallet.money+100;
-
-console.log(aliWallet.transactionHistory());
-
-
-
-
-
+console.log(account1.balanced);
 
